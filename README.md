@@ -16,7 +16,7 @@ Possible values:
 
 The best way to output menu is to use [partials](https://github.com/docpad/docpad-plugin-partials):
 
-1. Create `menu.html.eco` partial (I’m using [Eco](https://github.com/sstephenson/eco) templates, but you can use any other template):
+1. Create `menu.html.eco` partial (I’m using [Eco](https://github.com/sstephenson/eco) templates, but you can use any other):
 
 ```html
 <!-- Define `renderMenu` partial -->
