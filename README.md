@@ -64,8 +64,8 @@ The best way to output menu is to use [partials](https://github.com/docpad/docpa
 You can supply your document headers with menu-specific meta-data:
 
 * `menuTitle`: string. Title of menu item. If not defined, document’s `title` property is used.
-# `menuHidden`: boolean. Should current item and its children appear in menu
-# `menuOrder`: number. Order of menu item in its parent. Sorting is ascending.
+* `menuHidden`: boolean. Should current item and its children appear in menu
+* `menuOrder`: number. Order of menu item in its parent. Sorting is ascending.
 
 ## Plugin configuration ##
 
