@@ -13,7 +13,7 @@
 # menuTitle: String. Title of menu item. If not defined, `title` property is used
 # menuHidden: Boolean. Should current item and its children appear in menu
 # menuOrder: Number. Order of item in its parent. Sorting is ascending.
-_ = require('underscore')
+_ = require 'underscore'
 
 reIndex = /^index\.\w+$/i
 
@@ -21,6 +21,7 @@ class MenuItem
 	constructor: (@slug='', @document, @parent) ->
 		@children = []
 		@sortOrder = 0
+		
 		if @parent?
 			parent.children.push @
 
@@ -85,9 +86,9 @@ class MenuItem
 			filtered = []
 
 			for item in items
-				if item.hidden or (options.optimize and reIndex.test(item.slug))
+				if item.hidden or (options.optimize and reIndex.test item.slug or '')
 					continue
-				if options.skipFiles.test(item.slug)
+				if options.skipFiles?.test(item.slug)
 					continue
 				if options.skipEmpty and not item.hasDocument
 					if item.children?
@@ -111,6 +112,18 @@ class MenuItem
 
 		filterItems(item.toJSON(options) for item in @children)
 
+	getMeta: ->
+		meta = {}
+		if @document?
+			reItem = /^menu(\w+)$/
+
+			for k, v of @document.meta
+				if reItem.test k
+					metaKey = RegExp.$1[0].toLowerCase() + RegExp.$1.substr(1)
+					meta[metaKey] = v
+
+		meta
+
 	toJSON: (options={}) ->
 		output = {
 			title: @title()
@@ -120,6 +133,7 @@ class MenuItem
 			state: @activeState options.url
 			hidden: @document?.menuHidden
 			order: @sortOrder
+			meta: @getMeta()
 		}
 
 		children = _.clone @children
@@ -133,6 +147,7 @@ class MenuItem
 					output.title = item.title()
 					output.hasDocument = item.document?
 					output.order = item.sortOrder
+					output.meta = item.getMeta()
 					return true
 
 				return false
