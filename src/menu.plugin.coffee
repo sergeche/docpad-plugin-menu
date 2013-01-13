@@ -86,7 +86,7 @@ class MenuItem
 			filtered = []
 
 			for item in items
-				if item.hidden or (options.optimize and reIndex.test item.slug or '')
+				if item.meta.hidden or (options.optimize and reIndex.test item.slug or '')
 					continue
 				if options.skipFiles?.test(item.slug)
 					continue
@@ -131,7 +131,6 @@ class MenuItem
 			slug: @slug
 			hasDocument: @document?
 			state: @activeState options.url
-			hidden: @document?.menuHidden
 			order: @sortOrder
 			meta: @getMeta()
 		}
