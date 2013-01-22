@@ -67,6 +67,20 @@ You can supply your document headers with menu-specific meta-data:
 * `menuHidden`: boolean. Should current item and its children appear in menu
 * `menuOrder`: number. Order of menu item in its parent. Sorting is ascending.
 
+You can add any `menu*` meta-data into your document and its value will be available as `menuItem.meta.*` property of menu item. For example, if you add `menuFoo: 1` meta-data, you can use its value like this:
+
+```html
+<% renderMenu = (items) => %>
+<ul class="nav">
+    <% for item in items: %>
+        <% if item.meta.foo == '1': %>
+            <!-- Do something if menuFoo equals '1' -->
+        <% end %>
+    <% end %>
+</ul>   
+<% end %>
+```
+
 ## Plugin configuration ##
 
 In DocPad config file, you can add `menuOptions` object with the following properties:
