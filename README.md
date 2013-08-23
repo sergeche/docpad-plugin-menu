@@ -59,6 +59,12 @@ The best way to output menu is to use [partials](https://github.com/docpad/docpa
 </html>
 ```
 
+Note that you can use a custom collection by calling the generateMenu function this way:
+```html
+@generateMenu(@document.url, "myCustomCollection")
+```
+For more information about custom collections, please see the [Docpad documentation](http://docpad.org/docs/begin#creating-custom-collections-via-the-configuration-file).
+
 ## Document meta-data ##
 
 You can supply your document headers with menu-specific meta-data:
