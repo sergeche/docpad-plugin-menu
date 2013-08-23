@@ -181,12 +181,12 @@ module.exports = (BasePlugin) ->
 		extendTemplateData: ({templateData}) ->
 			docpad = @docpad
 			config = @config
-			templateData.generateMenu = (url) ->
+			templateData.generateMenu = (url, collectionName) ->
 				if config.menuOptions.optimize
 					url = url.replace /\/index\.\w+$/i, '/'
 
 				rootItem = new MenuItem
-				rootItem.add doc for doc in docpad.getCollection('documents').toJSON()
+				rootItem.add doc for doc in docpad.getCollection(collectionName).toJSON()
 				rootItem.submenu(_.extend {url: url}, config.menuOptions)
 
 
