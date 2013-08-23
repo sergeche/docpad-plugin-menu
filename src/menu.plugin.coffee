@@ -181,7 +181,7 @@ module.exports = (BasePlugin) ->
 		extendTemplateData: ({templateData}) ->
 			docpad = @docpad
 			config = @config
-			templateData.generateMenu = (url, collectionName) ->
+			templateData.generateMenu = (url, collectionName = "documents") ->
 				if config.menuOptions.optimize
 					url = url.replace /\/index\.\w+$/i, '/'
 
