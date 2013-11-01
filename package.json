@@ -1,7 +1,7 @@
 {
 	"name": "docpad-plugin-menu",
 	"description": "Automatically generates menu from documents folder",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"keywords": ["docpad", "docpad-plugin", "menu", "structure"],
 	"author": "Sergey Chikuyonok <serge.che@gmail.com> (http://chikuyonok.ru)",
 	"maintainers": [
