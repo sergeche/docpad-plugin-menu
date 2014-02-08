@@ -89,10 +89,23 @@ You can add any `menu*` meta-data into your document and its value will be avail
 
 ## Plugin configuration ##
 
-In DocPad config file, you can add `menuOptions` object with the following properties:
+In the DocPad config file, you can add `menuOptions` object with the following properties:
 
 * `optimize`: boolean. Optimize menu structure: items like `/about/index.html` will be omitted in favour of parent’s `/about/` item. E.g. this option will remove all `index.html` file names from generated structure. Default is `true`.
 * `skipEmpty`: boolean. Removes indermediate items from menu structure that has no content. Default is `true`.
 * `skipFiles`: regexp. Regular expression to skip files from generated menu structure. If document full url matches this regexp, it will not appear in menu.
 
-Plugin usage examples can be found in [Emmet Documentation](https://github.com/emmetio/emmet-docs) web-site source.
+Example `docpad.coffee` configuration:
+
+```coffee
+docpadConfig = {
+    plugins:
+        menu:
+            menuOptions:
+               optimize: true
+               skipEmpty: true
+               skipFiles: ///\.js|\.scss|\.css/// #regexp are delimited by three forward slashes in coffeescript
+}
+```
+
+Other plugin usage examples can be found in [Emmet Documentation](https://github.com/emmetio/emmet-docs) web-site source.
