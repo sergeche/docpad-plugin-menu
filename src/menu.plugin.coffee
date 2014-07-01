@@ -21,7 +21,7 @@ class MenuItem
 	constructor: (@slug='', @document, @parent) ->
 		@children = []
 		@sortOrder = 0
-		
+
 		if @parent?
 			parent.children.push @
 
@@ -42,9 +42,12 @@ class MenuItem
 
 			ctx = item
 
-		throw "Item duplicate: #{document.url}" if ctx.childBySlug slug
-
-		child = new MenuItem slug, document, ctx
+		if dupe = ctx.childBySlug slug
+			throw "Item duplicate: #{document.url}" if dupe.document
+			dupe.document = document
+			if document.menuOrder? then dupe.sortOrder = parseFloat document.menuOrder
+		else
+			child = new MenuItem slug, document, ctx
 
 	childBySlug: (slug) ->
 		_.find @children, (item) ->
