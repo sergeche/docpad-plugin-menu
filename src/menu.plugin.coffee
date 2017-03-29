@@ -90,6 +90,8 @@ class MenuItem
 					continue
 				if options.skipFiles?.test(item.slug)
 					continue
+				if options.skipUnordered and item.hasDocument and item.order == 0
+					continue
 				if options.skipEmpty and not item.hasDocument
 					if item.children?
 						subitems = filterItems item.children
