@@ -1,7 +1,7 @@
 {
 	"name": "docpad-plugin-menu",
 	"description": "Automatically generates menu from documents folder",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"scripts": {
 		"build": "coffee -o out/ -c src/",
 		"watch": "coffee -w -o out/ -c src/",
