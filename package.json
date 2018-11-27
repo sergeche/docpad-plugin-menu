@@ -2,7 +2,17 @@
 	"name": "docpad-plugin-menu",
 	"description": "Automatically generates menu from documents folder",
 	"version": "2.1.0",
-	"keywords": ["docpad", "docpad-plugin", "menu", "structure"],
+	"scripts": {
+		"build": "coffee -o out/ -c src/",
+		"watch": "coffee -w -o out/ -c src/",
+		"prepublish": "npm run build"
+	},
+	"keywords": [
+		"docpad",
+		"docpad-plugin",
+		"menu",
+		"structure"
+	],
 	"author": "Sergey Chikuyonok <serge.che@gmail.com> (http://chikuyonok.ru)",
 	"maintainers": [
 		"Sergey Chikuyonok <serge.che@gmail.com> (http://chikuyonok.ru)"
@@ -13,19 +23,19 @@
 	"bugs": {
 		"url": "https://github.com/sergeche/docpad-plugin-menu/issues"
 	},
-	"repository" : {
+	"repository": {
 		"type": "git",
 		"url": "https://github.com/sergeche/docpad-plugin-menu.git"
 	},
-	"engines" : {
+	"engines": {
 		"node": ">=0.4.0",
 		"docpad": ">=6.3.x"
 	},
 	"dependencies": {
-		"underscore": "1.3.x"
+		"underscore": "^1.9.1"
 	},
 	"devDependencies": {
-		"coffee-script": "1.3.x"
+		"coffeescript": "^2.3.2"
 	},
 	"main": "./out/menu.plugin.js"
 }

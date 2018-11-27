@@ -3,12 +3,12 @@
 # The 'templateData' object is extended with `generateMenu(url)` which
 # takes passed URL (in most cases, the URL of rendered document) and generates menu
 # aginst it. Each menu item contains `state` property that holds highlighting state
-# of item. 
+# of item.
 # Possible values:
 # – 'current': item is a currently viewed document
 # – 'parent': item contains currently viewed document
 # – false: regular item
-# 
+#
 # Each document meta data can be supplied with the following properties:
 # menuTitle: String. Title of menu item. If not defined, `title` property is used
 # menuHidden: Boolean. Should current item and its children appear in menu
@@ -21,9 +21,9 @@ class MenuItem
 	constructor: (@slug='', @document, @parent) ->
 		@children = []
 		@sortOrder = 0
-		
+
 		if @parent?
-			parent.children.push @
+			@parent.children.push @
 
 		if @document?.menuOrder?
 			@sortOrder = parseFloat @document.menuOrder
