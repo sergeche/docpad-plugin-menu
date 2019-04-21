@@ -2,7 +2,7 @@ A [DocPad](https://github.com/bevry/docpad) plugin that automatically generates 
 
 ## Installation ##
 
-Run `npm install --save docpad-plugin-menu` command in your DocPad project root.
+Run `docpad install menu` command in your DocPad project root.
     
 ## How it works ##
 
